@@ -1,0 +1,845 @@
+# How to use curl in Python
+    import pycurl
+    from io import BytesIO 
+
+    b_obj = BytesIO() 
+    crl = pycurl.Curl() 
+
+    # Set URL value
+    crl.setopt(crl.URL, 'https://wiki.python.org/moin/BeginnersGuide')
+
+    # Write bytes that are utf-8 encoded
+    crl.setopt(crl.WRITEDATA, b_obj)
+
+    # Perform a file transfer 
+    crl.perform() 
+
+    # End curl session
+    crl.close()
+
+    # Get the content stored in the BytesIO object (in byte characters) 
+    get_body = b_obj.getvalue()
+
+    # Decode the bytes stored in get_body to HTML and print the result 
+    print('Output of GET request:\n%s' % get_body.decode('utf8')) 
+
+
+
+# Peticiones Standard v1.1
+# Tweet JSON object example
+    {
+    "created_at": "Wed Oct 10 20:19:24 +0000 2018",
+    "id": 1050118621198921728,
+    "id_str": "1050118621198921728",
+    "text": "To make room for more expression, we will now count all emojis as equal—including those with gender‍‍‍ ‍‍and skin t… https://t.co/MkGjXf9aXm",
+    "user": {},  
+    "entities": {}
+    }
+
+        # Atributes options
+        "user": 
+        { "user": {
+            "id": 6253282,
+            "id_str": "6253282",
+            "name": "Twitter API",
+            "screen_name": "TwitterAPI",
+            "location": "San Francisco, CA",
+            "url": "https://developer.twitter.com",
+            "description": "The Real Twitter API. Tweets about API changes, service issues and our Developer Platform. Don't get an answer? It's on my website.",
+            "verified": true,
+            "followers_count": 6129794,
+            "friends_count": 12,
+            "listed_count": 12899,
+            "favourites_count": 31,
+            "statuses_count": 3658,
+            "created_at": "Wed May 23 06:01:13 +0000 2007",
+            "utc_offset": null,
+            "time_zone": null,
+            "geo_enabled": false,
+            "lang": "en",
+            "contributors_enabled": false,
+            "is_translator": false,
+            "profile_background_color": "null",
+            "profile_background_image_url": "null",
+            "profile_background_image_url_https": "null",
+            "profile_background_tile": null,
+            "profile_link_color": "null",
+            "profile_sidebar_border_color": "null",
+            "profile_sidebar_fill_color": "null",
+            "profile_text_color": "null",
+            "profile_use_background_image": null,
+            "profile_image_url": "null",
+            "profile_image_url_https": "https://pbs.twimg.com/profile_images/942858479592554497/BbazLO9L_normal.jpg",
+            "profile_banner_url": "https://pbs.twimg.com/profile_banners/6253282/1497491515",
+            "default_profile": false,
+            "default_profile_image": false,
+            "following": null,
+            "follow_request_sent": null,
+            "notifications": null
+        }
+        }
+
+        "entities":
+        {
+            "hashtags":[],
+            "urls":[],
+            "user_mentions":[],
+            "media":[],
+            "symbols":[]
+            "polls":[]
+        }
+
+        "place":
+        {
+        "attributes":{},
+        "bounding_box":
+        {
+            "coordinates":
+            [[
+                [-77.119759,38.791645],
+                [-76.909393,38.791645],
+                [-76.909393,38.995548],
+                [-77.119759,38.995548]
+            ]],
+            "type":"Polygon"
+        },
+        "country":"United States",
+        "country_code":"US",
+        "full_name":"Washington, DC",
+        "id":"01fbe706f872cb32",
+        "name":"Washington",
+        "place_type":"city",
+        "url":"http://api.twitter.com/1/geo/id/0172cb32.json"
+        }
+
+        "coordinates":
+        {
+            "coordinates":
+            [
+                -75.14310264,
+                40.05701649
+            ],
+            "type":"Point"
+        }
+
+        { "user": {
+            "id": 6253282,
+            "id_str": "6253282",
+            "name": "Twitter API",
+            "screen_name": "TwitterAPI",
+            "location": "San Francisco, CA",
+            "url": "https://developer.twitter.com",
+            "description": "The Real Twitter API. Tweets about API changes, service issues and our Developer Platform. Don't get an answer? It's on my website.",
+            "verified": true,
+            "followers_count": 6129794,
+            "friends_count": 12,
+            "listed_count": 12899,
+            "favourites_count": 31,
+            "statuses_count": 3658,
+            "created_at": "Wed May 23 06:01:13 +0000 2007",
+            "utc_offset": null,
+            "time_zone": null,
+            "geo_enabled": false,
+            "lang": "en",
+            "contributors_enabled": false,
+            "is_translator": false,
+            "profile_background_color": "null",
+            "profile_background_image_url": "null",
+            "profile_background_image_url_https": "null",
+            "profile_background_tile": null,
+            "profile_link_color": "null",
+            "profile_sidebar_border_color": "null",
+            "profile_sidebar_fill_color": "null",
+            "profile_text_color": "null",
+            "profile_use_background_image": null,
+            "profile_image_url": "null",
+            "profile_image_url_https": "https://pbs.twimg.com/profile_images/942858479592554497/BbazLO9L_normal.jpg",
+            "profile_banner_url": "https://pbs.twimg.com/profile_banners/6253282/1497491515",
+            "default_profile": false,
+            "default_profile_image": false,
+            "following": null,
+            "follow_request_sent": null,
+            "notifications": null
+        }
+        }
+
+        "matching_rules": " [{
+                "tag": "twitterapi emojis",
+                "id": 1050118621198921728,
+                "id_str": "1050118621198921728"
+            }]"
+
+# User JSON object example
+    {
+        "id": 6253282,
+        "id_str": "6253282",
+        "name": "Twitter API",
+        "screen_name": "TwitterAPI",
+        "location": "San Francisco, CA",
+        "profile_location": null,
+        "description": "The Real Twitter API. Tweets about API changes, service issues and our Developer Platform. Don't get an answer? It's on my website.",
+        "url": "https:\/\/t.co\/8IkCzCDr19",
+        "entities": {
+            "url": {
+                "urls": [{
+                    "url": "https:\/\/t.co\/8IkCzCDr19",
+                    "expanded_url": "https:\/\/developer.twitter.com",
+                    "display_url": "developer.twitter.com",
+                    "indices": [
+                        0,
+                        23
+                    ]
+                }]
+            },
+            "description": {
+                "urls": []
+            }
+        },
+        "protected": false,
+        "followers_count": 6133636,
+        "friends_count": 12,
+        "listed_count": 12936,
+        "created_at": "Wed May 23 06:01:13 +0000 2007",
+        "favourites_count": 31,
+        "utc_offset": null,
+        "time_zone": null,
+        "geo_enabled": null,
+        "verified": true,
+        "statuses_count": 3656,
+        "lang": null,
+        "contributors_enabled": null,
+        "is_translator": null,
+        "is_translation_enabled": null,
+        "profile_background_color": null,
+        "profile_background_image_url": null,
+        "profile_background_image_url_https": null,
+        "profile_background_tile": null,
+        "profile_image_url": null,
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/942858479592554497\/BbazLO9L_normal.jpg",
+        "profile_banner_url": null,
+        "profile_link_color": null,
+        "profile_sidebar_border_color": null,
+        "profile_sidebar_fill_color": null,
+        "profile_text_color": null,
+        "profile_use_background_image": null,
+        "has_extended_profile": null,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": null,
+        "follow_request_sent": null,
+        "notifications": null,
+        "translator_type": null
+    }
+
+# Entities  JSON object example Every Tweet JSON payload includes an 
+# entities section, with the minimum set of hashtags, urls, user_mentions, 
+# and symbols attributes, even if none of those entities are part of the 
+# Tweet message.
+
+"entities": {
+    "hashtags": [
+    ],
+    "urls": [
+    ],
+    "user_mentions": [
+    ],
+    "symbols": [
+    ]
+  }
+
+    # Atributes options
+
+    # Hashtags	
+    # Array of Hashtag Objects	
+    # Represents hashtags which have been parsed out of the Tweet text. Example:
+
+    {
+    "hashtags": [
+        {
+        "indices": [
+            32,
+            38
+        ],
+        "text": "nodejs"
+        }
+    ]
+    }
+    # media	
+    # Array of Media Objects	
+    # Represents media elements uploaded with the Tweet. Example:
+
+    {
+    "media": [
+        {
+        "display_url": "pic.twitter.com/5J1WJSRCy9",
+        "expanded_url": "https://twitter.com/nolan_test/status/930077847535812610/photo/1",
+        "id": 9.300778475358126e17,
+        "id_str": "930077847535812610",
+        "indices": [
+            13,
+            36
+        ],
+        "media_url": "http://pbs.twimg.com/media/DOhM30VVwAEpIHq.jpg",
+        "media_url_https": "https://pbs.twimg.com/media/DOhM30VVwAEpIHq.jpg"
+        "sizes": {
+            "thumb": {
+                "h": 150,
+                "resize": "crop",
+                "w": 150
+            },
+            "large": {
+                "h": 1366,
+                "resize": "fit",
+                "w": 2048
+            },
+            "medium": {
+                "h": 800,
+                "resize": "fit",
+                "w": 1200
+            },
+            "small": {
+                "h": 454,
+                "resize": "fit",
+                "w": 680
+            }
+        },
+        "type": "photo",      
+        "url": "https://t.co/5J1WJSRCy9",
+        }
+        ]
+    }
+
+    # urls	
+
+    # Array of URL Objects	
+    # Represents URLs included in the text of a Tweet.
+
+
+    # user_mentions	
+    # Array of User Mention Objects	
+    # Represents other Twitter users mentioned in the text of the Tweet. Example:
+
+    {
+    "user_mentions": [
+        {
+        "name": "Twitter API",
+        "indices": [
+            4,
+            15
+        ],
+        "screen_name": "twitterapi",
+        "id": 6253282,
+        "id_str": "6253282"
+        }
+    ]
+    }
+
+    # symbols	
+    # Array of Symbol Objects	
+    # Represents symbols, i.e. $cashtags, included in the text of the Tweet. Example:
+
+    {
+    "symbols": [
+        {
+        "indices": [
+            12,
+            17
+        ],
+        "text": "twtr"
+        }
+    ]
+    }
+
+    # polls	
+    # Array of Poll Objects	
+    # Represents Twitter Polls included in the Tweet.
+
+# Important
+
+    # An important detail with Retweets is that no additional Twitter 
+    # entities can be added to the Tweet. Users can not add hashtags, 
+    # URLs or other details when they Retweet. However, the Retweet 
+    # (top-level) text attribute is composed of the original Tweet text 
+    # with “RT @username: ” prepended.  
+
+    # Quote Tweets were introduced in 2016, and differ from Retweets in 
+    # that when you "quote" a Tweet you are adding new content "on top" 
+    # of a shared Tweet. This new content can include nearly anything an 
+    # original Tweet can have, including new text, hashtags, mentions, 
+    # and URLs.
+
+# Peticiones V2
+
+    # new options
+        # Fields
+            # The Twitter API v2 endpoints are equipped with a new set of 
+            # parameters called fields, which allows you to select just 
+            # the data that you want from each of our objects in your 
+            # endpoint response. 
+            
+            # Request public_metrics with fields
+            curl --request GET \
+            --url 'https://api.twitter.com/2/tweets/search/recent?query=from%3Atwitterdev&tweet.fields=public_metrics' \
+            --header 'Authorization: Bearer $BEARER_TOKEN'
+            # Response 
+            {
+            "data": {
+                "id": "1263150595717730305",
+                "public_metrics": {
+                    "retweet_count": 12,
+                    "reply_count": 14,
+                    "like_count": 49,
+                    "quote_count": 7
+                },
+                "text": "Do you 👀our new Tweet settings?\n\nWe want to know how and why you’d use a feature like this in the API. Get the details and let us know what you think👇\nhttps://t.co/RtMhhfAcIB https://t.co/8wxeZ9fJER"
+            }
+            }
+
+        # Expansion
+            # For example, if you were using the same GET 
+            # search/tweets/recent endpoint as earlier, and you wanted to 
+            # retrieve the author's profile description, you will have to 
+            # pass the expansions=author_id and user.fields=description 
+            # with your request
+            curl --request GET \
+            --url 'https://api.twitter.com/2/tweets/search/recent?query=from%3Atwitterdev&tweet.fields=public_metrics&expansions=author_id&user.fields=description' \
+            --header 'Authorization: Bearer $BEARER_TOKEN'
+
+            # Response
+            {
+            "data": [
+                {
+                "id": "1263150595717730305",
+                "author_id": "2244994945",
+                "text": "Do you 👀our new Tweet settings?\n\nWe want to know how and why you’d use a feature like this in the API. Get the details and let us know what you think👇\nhttps://t.co/RtMhhfAcIB https://t.co/8wxeZ9fJER",
+                "public_metrics": {
+                    "retweet_count": 12,
+                    "reply_count": 13,
+                    "like_count": 51,
+                    "quote_count": 7
+                }
+                }
+            ],
+            "includes": {
+                "users": [
+                {
+                    "id": "2244994945",
+                    "username": "TwitterDev",
+                    "description": "The voice of the #TwitterDev team and your official source for updates, news, and events, related to the #TwitterAPI.",
+                    "name": "Twitter Dev"
+                }
+                ]
+            }
+            }
+
+    # Redefinition petitions https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/follow-search-get-users/overview
+        # GET followers/ids
+            # options
+                · user_id	optional	The ID of the user for whom to return results.
+                · screen_name	optional	The screen name of the user for whom to return
+                · cursor	semi-optional	Causes the list of connections to be broken 
+                into pages of no more than 5000 IDs at a time. The number of IDs 
+                returned is not guaranteed to be 5000 as suspended users are filtered 
+                out after connections are queried. If no cursor is provided, a value of 
+                -1 will be assumed, which is the first "page."
+                · stringify_ids	optional	Some programming environments will not consume 
+                Twitter IDs due to their size. Provide this option to have IDs returned 
+                as strings instead. More about Twitter IDs.
+                · count	optional	Specifies the number of IDs attempt retrieval of, 
+                up to a maximum of 5,000 per distinct request. The value of count is 
+                best thought of as a limit to the number of results to return.
+            # Example Request
+            GET https://api.twitter.com/1.1/followers/ids.json?cursor=-1&screen_name=andypiper&count=5000
+
+            $ curl --request GET 
+            --url 'https://api.twitter.com/1.1/followers/ids.json?screen_name=twitterdev' 
+            --header 'authorization: Bearer <bearer>'
+            $ curl --request GET 
+            --url 'https://api.twitter.com/1.1/followers/ids.json?screen_name=twitterdev' 
+            --header 'authorization: OAuth oauth_consumer_key="consumer-key-for-app", 
+            oauth_nonce="generated-nonce", oauth_signature="generated-signature", 
+            oauth_signature_method="HMAC-SHA1", oauth_timestamp="generated-timestamp", 
+            oauth_version="1.0"'
+            $ twurl /1.1/followers/ids.json?screen_name=twitterdev
+            
+            # Example Response
+            {
+                "ids": [
+                    455974794,
+                    947576438684872705,
+                    850839346009780224,
+                    958850376630910976,
+                    889483959943536640,
+                    966094285119606784,
+                    1020583045,
+                    948604640811212801,
+                    967155179614240768,
+                    554514802,
+                    14873932,
+                    963916668731904000,
+                    970763391181746178,
+                    966091392631140358,
+                    .
+                    .
+                    .
+                    5000 ids later,
+                    .
+                    .
+                    .
+                    813143846,
+                    958604886735716353,
+                    402873729,
+                    958603486551330817,
+                    913076424897994753,
+                    820967329068707840,
+                    958593574932762624,
+                    958589381102665728,
+                    958573223737724929,
+                    889474485694410752
+                ],
+                "next_cursor": 1591087837626119954,
+                "next_cursor_str": "1591087837626119954",
+                "previous_cursor": 0,
+                "previous_cursor_str": "0"
+            }
+        # GET followers/list
+            # options
+                · user_id	optional	The ID of the user for whom to return results.
+                · screen_name	optional	The screen name of the user for whom to return results.
+                · cursor	semi-optional	Causes the results to be broken into pages. If no cursor is provided, a value of -1 will be assumed, 
+                    which is the first "page."
+                · count	optional	The number of users to return per page, up to a maximum of 200. 
+                Defaults to 20.
+                · skip_status	optional	When set to either true, t or 1, statuses will not be included in the returned user objects. If set 
+                to any other value, statuses will be included.
+                · include_user_entities	optional	The user object entities node will not be included when set to false
+
+            # Example Request
+                GET https://api.twitter.com/1.1/followers/list.json?cursor=-1&screen_name=twitterdev&skip_status=true&include_user_entities=false
+
+            # Example Response
+                {
+                "users": [
+                    {user-object},
+                    {user-object},
+                    {user-object}
+                ],
+                "next_cursor": 1489467234237774933,
+                "next_cursor_str": "1489467234237774933",
+                "previous_cursor": 0,
+                "previous_cursor_str": "0"
+                }
+
+        # GET followers/ids
+            # options
+                · user_id	optional	The ID of the user for whom to return results.
+                · screen_name	optional	The screen name of the user for whom to return results.
+                · cursor	semi-optional	Causes the results to be broken into pages. If no cursor 
+                is provided, a value of -1 will be assumed, which is the first "page."
+                · stringify_ids	optional	Some programming environments will not consume Twitter 
+                IDs due to their size. Provide this option to have IDs returned as strings instead. 
+                More about Twitter IDs.
+                · count	optional	Specifies the number of IDs attempt retrieval of, up to a maximum 
+                of 5,000 per distinct request.
+            # Example Request
+                $ curl --request GET 
+                --url 'https://api.twitter.com/1.1/friends/ids.json?screen_name=twitterdev' 
+                --header 'authorization: Bearer <bearer>'
+                $ curl --request GET 
+                --url 'https://api.twitter.com/1.1/friends/ids.json?screen_name=twitterdev' 
+                --header 'authorization: OAuth oauth_consumer_key="consumer-key-for-app", 
+                oauth_nonce="generated-nonce", oauth_signature="generated-signature", 
+                oauth_signature_method="HMAC-SHA1", oauth_timestamp="generated-timestamp", 
+                oauth_version="1.0"'
+                $ twurl /1.1/friends/ids.json?screen_name=twitterdev
+
+            # Example Response
+                {
+                "previous_cursor": 0,
+                "ids": [
+                    657693,
+                    183709371,
+                    7588892,
+                    38895958,
+                    22891211,
+                    9019482,
+                    14488353,
+                    11750202,
+                    12249,
+                    22915745,
+                    1249881,
+                    14927800,
+                    1523501,
+                    22548447,
+                    15062340,
+                    133031077,
+                    17874544,
+                    777925,
+                    4265731,
+                    27674040,
+                    26123649,
+                    9576402,
+                    821958,
+                    7852612,
+                    819797,
+                    1401881,
+                    8285392,
+                    9160152,
+                    795649,
+                    3191321,
+                    783214
+                ],
+                "previous_cursor_str": "0",
+                "next_cursor": 0,
+                "next_cursor_str": "0"
+                }
+        # GET friends/list
+            # options
+                · user_id	optional	The ID of the user for whom to return results.
+                · screen_name	optional	The screen name of the user for whom to return results.
+                · count	optional	The number of users to return per page, up to a maximum of 200. 
+                Defaults to 20.
+                · skip_status	optional	When set to either true, t or 1 statuses will not be 
+                included in the returned user objects.
+                · include_user_entities	optional	The user object entities node will not be 
+                included when set to false.
+            # Example Request
+                GET https://api.twitter.com/1.1/friends/list.json?cursor=-1&screen_name=twitterapi&skip_status=true&include_user_entities=false
+            # Example Response
+                {
+                "users": [
+                    {user-object},
+                    {user-object},
+                    {user-object}
+                ],
+                "previous_cursor": 0,
+                "previous_cursor_str": "0",
+                "next_cursor": 1333504313713126852,
+                "next_cursor_str": "1333504313713126852"
+                }
+
+        # GET friends/incoming
+            # options
+                · cursor	semi-optional	Causes the list of connections to be 
+                broken into pages of no more than 5000 IDs at a time. The number 
+                of IDs returned is not guaranteed to be 5000 as suspended users 
+                are filtered out after connections are queried. If no cursor 
+                is provided, a value of -1 will be assumed, which is the first "page."
+                · stringify_ids	optional	Many programming environments will not 
+                consume our Tweet ids due to their size. Provide this option to 
+                have ids returned as strings instead.
+            # Example Request
+                GET https://api.twitter.com/1.1/friendships/incoming.json
+            # Example Response
+                {
+                "previous_cursor": 0,
+                "ids": [6253282],
+                "previous_cursor_str": "0",
+                "next_cursor": 0,
+                "next_cursor_str": "0"
+                }
+
+        # GET friends/lookup
+            Returns the relationships of the authenticating user to the comma-separated
+            list of up to 100 screen_names or user_ids provided. Values for connections 
+            can be: following, following_requested, followed_by, none, blocking, muting.
+            # options
+                · Name	Required	Description
+                · screen_name	optional	A comma separated list of screen names, up 
+                to 100 are allowed in a single request.
+                · user_id	optional	A comma separated list of user IDs, up to 100 
+                are allowed in a single request.
+            # Example Request
+                $ curl --request GET 
+                --url 'https://api.twitter.com/1.1/friendships/lookup.json?screen_name=andypiper%2Cbinary_aaron%2Ctwitterdev%2Chappycamper%2Charris_0ff' 
+                --header 'authorization: OAuth oauth_consumer_key="consumer-key-for-app", 
+                oauth_nonce="generated-nonce", oauth_signature="generated-signature", 
+                oauth_signature_method="HMAC-SHA1", oauth_timestamp="generated-timestamp", 
+                oauth_token="access-token-for-authed-user", oauth_version="1.0"'
+                $ twurl /1.1/friendships/lookup.json?screen_name=andypiper,binary_aaron,twitterdev,happycamper,harris_0ff
+            # Example Response
+                [
+                {
+                    "name": "andy piper (pipes)",
+                    "screen_name": "andypiper",
+                    "id": 786491,
+                    "id_str": "786491",
+                    "connections": [
+                    "following"
+                    ]
+                },
+                {
+                    "name": "λ🥑. 🍞",
+                    "screen_name": "binary_aaron",
+                    "id": 165837734,
+                    "id_str": "165837734",
+                    "connections": [
+                    "following",
+                    "followed_by"
+                    ]
+                },
+                {
+                    "name": "Twitter Dev",
+                    "screen_name": "TwitterDev",
+                    "id": 2244994945,
+                    "id_str": "2244994945",
+                    "connections": [
+                    "following"
+                    ]
+                },
+                {
+                    "name": "Emily Sheehan 🏕",
+                    "screen_name": "happycamper",
+                    "id": 63046977,
+                    "id_str": "63046977",
+                    "connections": [
+                    "none"
+                    ]
+                },
+                {
+                    "name": "Harrison Test",
+                    "screen_name": "Harris_0ff",
+                    "id": 4337869213,
+                    "id_str": "4337869213",
+                    "connections": [
+                    "following",
+                    "following_requested",
+                    "followed_by"
+                    ]
+                }
+                ]
+
+        # GET friendships/show
+            # options
+                · source_id	optional	The user_id of the subject user.
+                · source_screen_name	optional	The screen_name of the subject user.
+                · target_id	optional	The user_id of the target user.
+                · target_screen_name	optional	The screen_name of the target user.
+            # Example Request
+                GET https://api.twitter.com/1.1/friendships/show.json?source_screen_name=twitterdev&target_screen_name=twitter
+            # Example Response
+                {
+                "relationship": {
+                    "source": {
+                    "id": 783214,
+                    "id_str": "783214",
+                    "screen_name": "Twitter",
+                    "following": true,
+                    "followed_by": true,
+                    "live_following": false,
+                    "following_received": null,
+                    "following_requested": null,
+                    "notifications_enabled": null,
+                    "can_dm": true,
+                    "blocking": null,
+                    "blocked_by": null,
+                    "muting": null,
+                    "want_retweets": null,
+                    "all_replies": null,
+                    "marked_spam": null
+                    },
+                    "target": {
+                    "id": 2244994945,
+                    "id_str": "2244994945",
+                    "screen_name": "TwitterDev",
+                    "following": true,
+                    "followed_by": true,
+                    "following_received": null,
+                    "following_requested": null
+                    }
+                }
+                }
+        
+        # GET users/lookup
+            # options
+                · source_id	optional	The user_id of the subject user.
+                · source_screen_name	optional	The screen_name of the subject user.
+                · target_id	optional	The user_id of the target user.
+                · target_screen_name	optional	The screen_name of the target user.
+            # Example Request
+                GET https://api.twitter.com/1.1/friendships/show.json?source_screen_name=twitterdev&target_screen_name=twitter
+            # Example Response
+                {
+                "relationship": {
+                    "source": {
+                    "id": 783214,
+                    "id_str": "783214",
+                    "screen_name": "Twitter",
+                    "following": true,
+                    "followed_by": true,
+                    "live_following": false,
+                    "following_received": null,
+                    "following_requested": null,
+                    "notifications_enabled": null,
+                    "can_dm": true,
+                    "blocking": null,
+                    "blocked_by": null,
+                    "muting": null,
+                    "want_retweets": null,
+                    "all_replies": null,
+                    "marked_spam": null
+                    },
+                    "target": {
+                    "id": 2244994945,
+                    "id_str": "2244994945",
+                    "screen_name": "TwitterDev",
+                    "following": true,
+                    "followed_by": true,
+                    "following_received": null,
+                    "following_requested": null
+                    }
+                }
+                }
+        # GET users/search
+            # options
+                · q	required	The search query to run against people search.
+                · page	optional	Specifies the page of results to retrieve.
+                · count	optional	The number of potential user results to 
+                retrieve per page. This value has a maximum of 20.
+                · include_entities	optional	The entities node will not be 
+                included in embedded Tweet objects when set to false .
+            # Example Request
+                $ curl --request GET 
+                --url 'https://api.twitter.com/1.1/users/search.json?q=soccer' 
+                --header 'authorization: OAuth oauth_consumer_key="consumer-key-for-app", 
+                oauth_nonce="generated-nonce", oauth_signature="generated-signature", 
+                oauth_signature_method="HMAC-SHA1", oauth_timestamp="generated-timestamp", 
+                oauth_token="access-token-for-authed-user", oauth_version="1.0"'
+                $ twurl /1.1/users/search.json?q=soccer            
+
+            # Example Response
+                [
+                {user-object},
+                {user-object},
+                {user-object},
+                {user-object},
+                {user-object},
+                {user-object}
+                ]
+        # GET users/show
+            Returns a variety of information about the user specified by 
+            the required user_id or screen_name parameter. The author's most recent Tweet will be returned inline when possible.
+            # options
+                · Name	Required	Description
+                · user_id	required	The ID of the user for whom to return results. 
+                Either an id or screen_name is required for this method.
+                · screen_name	required	The screen name of the user for whom to return results. Either a id or screen_name is
+                 required for this method.
+                · include_entities	optional	The entities node will not be 
+                included in embedded Tweet objects when set to false .
+            # Example Request
+                $ curl --request GET 
+                --url 'https://api.twitter.com/1.1/users/show.json?screen_name=twitterdev' 
+                --header 'authorization: Bearer <bearer>'
+                $ curl --request GET 
+                --url 'https://api.twitter.com/1.1/users/show.json?screen_name=twitterdev' 
+                --header 'authorization: OAuth oauth_consumer_key="consumer-key-for-app", 
+                oauth_nonce="generated-nonce", oauth_signature="generated-signature", 
+                oauth_signature_method="HMAC-SHA1", oauth_timestamp="generated-timestamp", 
+                oauth_version="1.0"'
+                $ twurl /1.1/users/show.json?screen_name=twitterdev
+
+            # Example Response
+                {user-object}
+
+
