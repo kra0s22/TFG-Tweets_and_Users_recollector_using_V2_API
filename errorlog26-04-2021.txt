@@ -1,0 +1,3 @@
+Error, no hay tweets para el Hashtag: aldjfolajsdfa 26/04/2021 13:45:23
+Error, no hay tweets para el Hashtag: asfasdfasdfasdfa 26/04/2021 13:45:27
+Error en la petición:   Título del error: Invalid Request  Descripción del error: One or more parameters to your request was invalid. Error: curl "https://api.twitter.com/2/tweets/search/all?query=%23PSOE&start_time=2021-02-01T00%3A00%3A00Z&end_time=2021-04-09T11%3A59%3A59Z&max_results=4&tweet.fields=author_id,referenced_tweets,created_at,context_annotations,lang,entities&expansions=geo.place_id&place.fields=country&next_token=b26v89c19zqg8o3fosqrur36x0vr9sqsbo4qjty9op9bx" 
