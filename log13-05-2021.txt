@@ -1,2 +1,2 @@
 Primer log
-('DemocraciaOFascismo4M', '01-02-2021', '25-04-2021') 18:10:56 109 ('DemocraciaOFascismo4M', '01-02-2021', '25-04-2021') 18:11:03
+{'hashtag': 'DemocraciaOFascismo4M', 'start_time': '01-02-2021', 'end_time': '25-04-2021', 'pending_tweets': -9} 21:12:54 109 {'hashtag': 'DemocraciaOFascismo4M', 'start_time': '01-02-2021', 'end_time': '25-04-2021', 'pending_tweets': -9} 21:13:02
