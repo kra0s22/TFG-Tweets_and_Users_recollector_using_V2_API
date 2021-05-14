@@ -1,2 +1,0 @@
-Primer log
-{'hashtag': 'DemocraciaOFascismo4M', 'start_time': '01-02-2021', 'end_time': '25-04-2021', 'pending_tweets': -9, 'next_token': 'DemocraciaOFascismo4M'} 13:24:46 109 {'hashtag': 'DemocraciaOFascismo4M', 'start_time': '01-02-2021', 'end_time': '25-04-2021', 'pending_tweets': -9, 'next_token': 'DemocraciaOFascismo4M'} 13:24:52
